@@ -1,0 +1,180 @@
+﻿@model EntityFramework_DemoProject.Models.UsersModelcs
+@{
+    ViewBag.Title = "UserDetails";
+}
+<head>
+    <style type="text/css">
+        .registration-container {
+            margin: 100px auto;
+            padding: 50px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px;
+            background-image: url("../../Content/Images/18240979_v748-toon-103.jpg");
+        }
+
+        sup {
+            color: #f00;
+            font-weight: bolder;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        small {
+            color: #f00;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<div class="registration-container w-50 container">
+    <h2 class="text-center mb-3">
+        Register Here!!
+    </h2>
+    @using (Html.BeginForm("AddUpdate", "User", FormMethod.Post, new { @class = "registration-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name, new { @class = "form-label" })
+                    <sup>*</sup>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <small>
+                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                    </small>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Gender, new { @class = "form-label" })
+                    <sup>*</sup>
+                    <div>
+                        @Html.RadioButtonFor(m => m.Gender, "Male", new { @class = "form-check-input me-1" })
+                        @Html.Label("Male", new { @class = "form-check-label me-1" })
+
+                        @Html.RadioButtonFor(m => m.Gender, "Female", new { @class = "form-check-input me-1" })
+                        @Html.Label("Female", new { @class = "form-check-label me-1" })
+
+                        @Html.RadioButtonFor(m => m.Gender, "Others", new { @class = "form-check-input me-1" })
+                        @Html.Label("Others", new { @class = "form-check-label me-1" })
+                    </div>
+                    <small>
+                        @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Age, new { @class = "form-label" })
+                    <sup>*</sup>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                        @Html.EditorFor(m => m.Age, "", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <small>
+                        @Html.ValidationMessageFor(m => m.Age, "", new { htmlattribute = new { @class = "text-danger" } })
+                    </small>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.SelectType, new { @class = "form-label" })
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-location-arrow"></i></span>
+                        @Html.DropDownListFor(m => m.SelectType,
+                             new SelectList(Enum.GetValues(typeof(EntityFramework_DemoProject.Models.Type))), "Select Type",
+                             new { @class = "form-select" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-col-12">
+            <div class="form-group mt-2">
+                @Html.LabelFor(m => m.University, new { @class = "form-label" })
+                <sup>*</sup>
+                <div class="input-group">
+                    @Html.DropDownListFor(m => m.SelectType,
+                              new SelectList(Enum.GetValues(typeof(EntityFramework_DemoProject.Models.University))), "Select Type",
+                              new { @class = "form-select" })
+                </div>
+                <small>
+                    @Html.ValidationMessageFor(m => m.University, "", new { @class = "text-danger" })
+                </small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email_ID, new { @class = "form-label" })
+                    <sup>*</sup>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        @Html.EditorFor(m => m.Email_ID, "", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <small>
+                        @Html.ValidationMessageFor(m => m.Email_ID, "", new { htmlAttributes = new { @class = "text-danger" } })
+                    </small>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.MobileNo, new { @class = "form-label" })
+                    <sup>*</sup>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
+                        @Html.EditorFor(m => m.MobileNo, "", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <small>
+                        @Html.ValidationMessageFor(m => m.MobileNo, "", new { htmlattribute = new { @class = "text-danger" } })
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "form-label" })
+                    <sup>*</sup>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        @Html.EditorFor(m => m.Password, "", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <small>
+                        @Html.ValidationMessageFor(m => m.Password, "", new { htmlAttributes = new { @class = "text-danger" } })
+                    </small>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "form-label" })
+                    <sup>*</sup>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        @Html.EditorFor(m => m.ConfirmPassword, "", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <small>
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { htmlattribute = new { @class = "text-danger" } })
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="mt-3  text-center">
+            <button type="submit" class="btn-success btn" id="addbtn">Register</button>
+            <button type="button" class="btn-danger btn" onclick="pageRefresh()">Cancel</button>
+        </div>
+     }
+</div>
+<script>
+    function
+        pageRefresh() {
+        window.location.href = "@Url.Action("MembersTB", "User")";
+    }
+</script>
+
+
