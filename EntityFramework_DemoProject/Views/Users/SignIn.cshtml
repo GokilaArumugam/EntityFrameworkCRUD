@@ -1,4 +1,4 @@
-﻿@model EntityFramework_DemoProject.Models.UsersModelcs
+﻿@model EntityFramework_DemoProject.Models.Register
 @{
     Layout = null;
 }
@@ -56,7 +56,7 @@
                 Login Here!
             </h3>
             @using (Html.BeginForm("SignIn", "Users", FormMethod.Post, new { @class = "Login-form" }))
-            {
+             {
                 @Html.AntiForgeryToken()
                 <div class="row">
                     <div class="col">

@@ -22,7 +22,7 @@ namespace EntityFramework_DemoProject.Controllers
             List<UsersModelcs> listUser = GetList();
             return View(listUser);
         }
-        public ActionResult UserDetails(int id=0 ) 
+        public ActionResult UserDetails(int id=0) 
         {
             UsersModelcs userTb = new UsersModelcs();
             if (id != 0)

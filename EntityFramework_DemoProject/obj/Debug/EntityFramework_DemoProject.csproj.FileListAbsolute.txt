@@ -162,9 +162,10 @@ C:\Users\Gokila\source\repos\EntityFramework_DemoProject\EntityFramework_DemoPro
 C:\Users\Gokila\source\repos\EntityFramework_DemoProject\EntityFramework_DemoProject\bin\Antlr3.Runtime.pdb
 C:\Users\Gokila\source\repos\EntityFramework_DemoProject\EntityFramework_DemoProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Gokila\source\repos\EntityFramework_DemoProject\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.csproj.AssemblyReference.cache
-C:\Users\Gokila\source\repos\EntityFramework_DemoProject\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.Migrations.initialmigrates.resources
-C:\Users\Gokila\source\repos\EntityFramework_DemoProject\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.csproj.GenerateResource.cache
 C:\Users\Gokila\source\repos\EntityFramework_DemoProject\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.csproj.CoreCompileInputs.cache
 C:\Users\Gokila\source\repos\EntityFramework_DemoProject\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.csproj.CopyComplete
 C:\Users\Gokila\source\repos\EntityFramework_DemoProject\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.dll
 C:\Users\Gokila\source\repos\EntityFramework_DemoProject\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.pdb
+C:\Users\Gokila\source\repos\EntityFramework_DemoProject\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.Migrations.user_migration.resources
+C:\Users\Gokila\source\repos\EntityFramework_DemoProject\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.csproj.GenerateResource.cache
+C:\Users\Gokila\source\repos\EntityFramework_DemoProject\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.Migrations.signupmigration.resources

@@ -13,5 +13,6 @@ namespace EntityFramework_DemoProject.Models
 
         }
         public DbSet<UsersModelcs> User { get; set; }
+        public DbSet<Register> registers { get; set; }
     }
 }

@@ -17,19 +17,15 @@ namespace EntityFramework_DemoProject.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult SignUp(UsersModelcs usermodel)
+        public ActionResult SignUp(Register register)
         {
             UsersContext db = new UsersContext();
-            usermodel.SelectType = "Staff";
-            usermodel.University = "AnnaUniversity";
-            usermodel.Department = "CivilEngineering";
-            usermodel.City = "Chennai";
-            var user = db.User.Where(m => m.Email_ID == usermodel.Email_ID).FirstOrDefault();
+            var user = db.User.Where(m => m.Email_ID == register.Email_ID).FirstOrDefault();
             if (user == null)
             {
-                db.User.Add(usermodel);
+                db.registers.Add(register);
                 db.SaveChanges();
-               return RedirectToAction("SignIn");
+                return RedirectToAction("SignIn");
             }
             else
             {
@@ -40,26 +36,37 @@ namespace EntityFramework_DemoProject.Controllers
         [HttpGet]
         public ActionResult SignIn()
         {
-
             return View();
         }
         [HttpPost]
-        public ActionResult SignIn(UsersModelcs usermodel)
+        public ActionResult SignIn(Register login)
         {
             using (var db = new UsersContext())
             {
-                var userlogin = db.User.Where(m => m.Email_ID == usermodel.Email_ID && m.Password == usermodel.Password).FirstOrDefault();
-               if(userlogin == null) 
-               {
-                    TempData["Error"] = "Wrong Email_Id or Password!";
-               }
-                else
+                var userlogin = db.registers.Where(m => m.Email_ID == login.Email_ID && m.Password == login.Password).FirstOrDefault();
+                if (userlogin != null)
                 {
                     TempData["Success"] = "Login Successfully!";
-                    return RedirectToAction("Members","Member");
+                    return RedirectToAction("Members", "Member");
+
+                }
+                else
+                {
+                    TempData["Error"] = "Wrong Email_Id or Password!";
                 }
             }
-            return View(usermodel);
+            return View(login);
         }
+        [HttpGet]
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ResetPassword(Register resetpassword) 
+        {
+            return View();
+        }
+        public ActionResult Sample() { return View(); }
     }
 }
