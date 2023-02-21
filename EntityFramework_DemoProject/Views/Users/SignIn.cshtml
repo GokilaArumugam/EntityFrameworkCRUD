@@ -25,7 +25,7 @@
             border-radius: 5px;
             box-shadow: 0 0 5px #000;
             padding: 50px;
-            /*background-color:#AA9FB1;*/
+            background-color: mintcream;
         }
 
         p {
@@ -40,74 +40,61 @@
         label {
             font-weight: bold;
         }
-
-        .Image {
-            background-image: url("../../Content/Images/Tablet login.gif");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-        }
     </style>
 </head>
 <div class="Login-container w-50 container">
     <div class="row">
-        <div class="col-6">
-            <h3 class="text-center">
-                Login Here!
-            </h3>
-            @using (Html.BeginForm("SignIn", "Users", FormMethod.Post, new { @class = "Login-form" }))
-             {
-                @Html.AntiForgeryToken()
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group my-2">
-                            @Html.LabelFor(m => m.Email_ID, new { @class = "form-label" })
-                            <sup>*</sup>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                @Html.EditorFor(m => m.Email_ID, "",
-                               new { htmlAttributes = new { @class = "form-control" } })
-                            </div>
-                            <small>
-                                @Html.ValidationMessageFor(m => m.Email_ID, "",
-                               new { htmlAttributes = new { @class = "text-danger" } })
-                            </small>
+        <h3 class="text-center">
+            Login Here!
+        </h3>
+        @using (Html.BeginForm("SignIn", "Users", FormMethod.Post, new { @class = "Login-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col">
+                    <div class="form-group my-2">
+                        @Html.LabelFor(m => m.Email_ID, new { @class = "form-label" })
+                        <sup>*</sup>
+                        <div class="input-group">
+                            @Html.EditorFor(m => m.Email_ID, "",new { htmlAttributes = new { @class = "form-control"} })
                         </div>
-                        <div class="form-group my-2">
-                            @Html.LabelFor(m =>m.Password, new { @class = "form-label" })
-                            <sup>*</sup>
-                            <div class="input-group">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                @Html.EditorFor(m => m.Password, "", new { htmlAttributes = new { @class = "form-control" } })
-                            </div>
-                            <small>
-                                @Html.ValidationMessageFor(m => m.Password, "", new { htmlAttributes = new { @class = "text-danger" } })
-                            </small>
-                        </div>
-                        <div class="my-3">
-                            <button type="submit" class="btn-primary btn" id="toast-login">Login</button>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                @Html.ActionLink("Forgot Password?", "Forgot_Password", "User", new { @class = "nav-link" })
-                            </div>
-                            <div class="text-center col-6">
-                                @Html.ActionLink("New User? SignUp", "SignUp", "Users", new { @class = "nav-link" })
-                            </div>
-                        </div>
-
-                        <div>
-                            <p class="text-success">@TempData["Success"]</p>
-                            <p class="text-danger">@TempData["Error"]</p>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-xl-6 Image"></div>
+                        <small>
+                            @Html.ValidationMessageFor(m => m.Email_ID, "", new { htmlAttributes = new { @class = "text-danger" } })
+                        </small>
                     </div>
+                    <div class="form-group my-2">
+                        @Html.LabelFor(m => m.Password, new { @class = "form-label" })
+                        <sup>*</sup>
+                        <div class="input-group">
+                            @Html.EditorFor(m => m.Password, "", new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <small>
+                            @Html.ValidationMessageFor(m => m.Password, "", new { htmlAttributes = new { @class = "text-danger" } })
+                        </small>
+                    </div>
+                    <div class="my-3">
+                        <button type="submit" class="btn-primary btn" id="toast-login">Login</button>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            @Html.ActionLink("Forgot Password?", "ResetPassword", "Users", new { @class = "nav-link" })
+                        </div>
+                        <div class="text-center col-6">
+                            @Html.ActionLink("New User? SignUp", "SignUp", "Users", new { @class = "nav-link" })
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-success">@TempData["Success"]</p>
+                        <p class="text-danger">@TempData["Error"]</p>
+                    </div>
+
                 </div>
-            }
-        </div>
-        <div class="col-6 Image"></div>
+            </div>
+        }
     </div>
 </div>
+
 
 @if (TempData["Error"] != null)
 {

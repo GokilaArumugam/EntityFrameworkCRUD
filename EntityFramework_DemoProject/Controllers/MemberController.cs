@@ -1,4 +1,5 @@
 ﻿using EntityFramework_DemoProject.Models;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,7 +11,7 @@ namespace EntityFramework_DemoProject.Controllers
 {
     public class MemberController : Controller
     {
-        private List<UsersModelcs> GetList()
+        private List<Members> GetList()
         {
             using (var db = new UsersContext())
             {
@@ -19,12 +20,13 @@ namespace EntityFramework_DemoProject.Controllers
         }
         public ActionResult Members()
         {
-            List<UsersModelcs> listUser = GetList();
+            List<Members> listUser = GetList();
             return View(listUser);
         }
-        public ActionResult UserDetails(int id=0) 
+        [HttpGet]
+        public ActionResult UserDetails(int id = 0)
         {
-            UsersModelcs userTb = new UsersModelcs();
+            Members userTb = new Members();
             if (id != 0)
             {
                 using (var db = new UsersContext())
@@ -42,25 +44,36 @@ namespace EntityFramework_DemoProject.Controllers
                 db.User.Remove(userTb);
                 db.SaveChanges();
             }
-            return View("MembersTB", GetList());
+            return View("Members", GetList());
         }
-        public ActionResult AddUpdate(UsersModelcs User)
+        [HttpPost]
+        public ActionResult UserDetails(Members User)
         {
-            using (var db = new UsersContext())
+            UsersContext db = new UsersContext();
+            var user = db.User.Where(m => m.Email_ID == User.Email_ID).FirstOrDefault();
+            if (User.Id==0)
             {
-                if (User.Id == 0)
-                {
-                    db.User.Add(User);
-                }
-                else
-                {
-                    db.Entry(User).State = EntityState.Modified;
-                }
+                db.User.Add(User);
                 db.SaveChanges();
+                return RedirectToAction("Members");
             }
-            return View("MembersTB", GetList());
+            else
+            {
+                db.Entry(User).State = EntityState.Modified;
+            }
+            db.SaveChanges();
+            return View("Members", GetList());
         }
-     
+        //public ActionResult Update(Members User)
+        //{
+        //    using (var db = new UsersContext())
+        //    {
+        //        db.Entry(User).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //    }
+        //    return View(User);
+        //}
 
     }
+
 }

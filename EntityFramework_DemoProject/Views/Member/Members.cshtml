@@ -1,4 +1,4 @@
-﻿@model List<EntityFramework_DemoProject.Models.UsersModelcs>
+﻿@model List<EntityFramework_DemoProject.Models.Members>
 @{
     ViewBag.Title = "MembersTB";
 }
@@ -26,23 +26,25 @@
                 padding-top: 12px;
                 padding-bottom: 12px;
                 text-align: left;
-                background-color: #04AA6D;
-                color: white;
+                background-color:antiquewhite;
+                color: black;
             }
     </style>
 </head>
 <div class="row">
     <div class="col-sm-3">
-        <a class="btn-primary btn" id="btnAdd" href="@Url.Action("UserDetails", "User", new {id=0})">AddUser</a>
+        <a class="btn-primary btn" id="btnAdd" href="@Url.Action("UserDetails", "Member", new {id=0})">AddUser</a>
     </div>
-
 </div>
+<br />
+<br />
 <table id="Field">
     <thead>
         <tr>
             <th>Name</th>
             <th>Gender</th>
             <th>Age</th>
+            <th>Address</th>
             <th>University</th>
             <th>Type</th>
             <th>MobileNo</th>
@@ -61,6 +63,7 @@
                         <td>@items.Name</td>
                         <td>@items.Gender</td>
                         <td>@items.Age</td>
+                        <td>@items.Address</td>
                         <td>@items.University</td>
                         <td>@items.SelectType</td>
                         <td>@items.Email_ID</td>
@@ -68,16 +71,16 @@
                         <td>@items.Department</td>
                         <td>@items.City</td>
                         <td>
-                            <a href="@Url.Action("UserDetails", "User", new {id=items.Id})">Edit</a>|
-                            <a href="@Url.Action("DeleteUser", "User", new {id=items.Id})">Delete</a>
+                            <a href="@Url.Action("UserDetails", "Member", new {id=items.Id})">Edit</a>|
+                            <a href="@Url.Action("DeleteUser", "Member", new {id=items.Id})">Delete</a>
                         </td>
                     </tr>
                 }
-            }
+          }
             else
             {
                 <tr style="text-align:center">
-                    <td colspan="10">No Records Found</td>
+                    <td colspan="12">No Records Found</td>
                 </tr>
             }
         }

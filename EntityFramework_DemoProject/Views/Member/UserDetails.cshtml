@@ -1,15 +1,21 @@
-﻿@model EntityFramework_DemoProject.Models.UsersModelcs
+﻿@model EntityFramework_DemoProject.Models.Members
 @{
+    Layout = null;
     ViewBag.Title = "UserDetails";
 }
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="~/Content/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/Content/regular.min.css" rel="stylesheet" />
+    <link href="~/Content/solid.min.css" rel="stylesheet" />
     <style type="text/css">
         .registration-container {
-            margin: 100px auto;
+           // margin: 100px auto;
             padding: 50px;
             border-radius: 5px;
             box-shadow: 0 0 5px;
-            background-image: url("../../Content/Images/18240979_v748-toon-103.jpg");
+            background-color: #d1caa1;
         }
 
         sup {
@@ -31,7 +37,7 @@
     <h2 class="text-center mb-3">
         Register Here!!
     </h2>
-    @using (Html.BeginForm("AddUpdate", "User", FormMethod.Post, new { @class = "registration-form" }))
+    @using (Html.BeginForm("UserDetails", "Member", FormMethod.Post, new { @class = "registration-form" }))
     {
         @Html.AntiForgeryToken()
         <div class="row">
@@ -40,7 +46,6 @@
                     @Html.LabelFor(m => m.Name, new { @class = "form-label" })
                     <sup>*</sup>
                     <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
                         @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                     <small>
@@ -74,7 +79,6 @@
                     @Html.LabelFor(m => m.Age, new { @class = "form-label" })
                     <sup>*</sup>
                     <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
                         @Html.EditorFor(m => m.Age, "", new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                     <small>
@@ -84,28 +88,64 @@
             </div>
             <div class="col-6">
                 <div class="form-group">
+                    @Html.LabelFor(m => m.Address, new { @class = "form-label" })
+                    <sup>*</sup>
+                    <div class="input-group">
+                        @Html.EditorFor(m => m.Address, "", new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
                     @Html.LabelFor(m => m.SelectType, new { @class = "form-label" })
                     <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-location-arrow"></i></span>
                         @Html.DropDownListFor(m => m.SelectType,
                              new SelectList(Enum.GetValues(typeof(EntityFramework_DemoProject.Models.Type))), "Select Type",
                              new { @class = "form-select" })
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row-col-12">
-            <div class="form-group mt-2">
-                @Html.LabelFor(m => m.University, new { @class = "form-label" })
-                <sup>*</sup>
-                <div class="input-group">
-                    @Html.DropDownListFor(m => m.SelectType,
-                              new SelectList(Enum.GetValues(typeof(EntityFramework_DemoProject.Models.University))), "Select Type",
-                              new { @class = "form-select" })
+            <div class="col-6">
+                <div class="form-group mt-2">
+                    @Html.LabelFor(m => m.University, new { @class = "form-label" })
+                    <sup>*</sup>
+                    <div class="input-group">
+                        @Html.DropDownListFor(m => m.University,
+                                  new SelectList(Enum.GetValues(typeof(EntityFramework_DemoProject.Models.University))), "Select University",
+                                  new { @class = "form-select" })
+                    </div>
+                    <small>
+                        @Html.ValidationMessageFor(m => m.University, "", new { @class = "text-danger" })
+                    </small>
                 </div>
-                <small>
-                    @Html.ValidationMessageFor(m => m.University, "", new { @class = "text-danger" })
-                </small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Department, new { @class = "form-label" })
+                    <div class="input-group">
+                        @Html.DropDownListFor(m => m.Department,
+                             new SelectList(Enum.GetValues(typeof(EntityFramework_DemoProject.Models.Department))), "Select Department",
+                             new { @class = "form-select" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group mt-2">
+                    @Html.LabelFor(m => m.City, new { @class = "form-label" })
+                    <sup>*</sup>
+                    <div class="input-group">
+                        @Html.DropDownListFor(m => m.City,
+                                  new SelectList(Enum.GetValues(typeof(EntityFramework_DemoProject.Models.City))), "Select City",
+                                  new { @class = "form-select" })
+                    </div>
+                    <small>
+                        @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+                    </small>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -114,7 +154,6 @@
                     @Html.LabelFor(m => m.Email_ID, new { @class = "form-label" })
                     <sup>*</sup>
                     <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                         @Html.EditorFor(m => m.Email_ID, "", new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                     <small>
@@ -127,7 +166,6 @@
                     @Html.LabelFor(m => m.MobileNo, new { @class = "form-label" })
                     <sup>*</sup>
                     <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
                         @Html.EditorFor(m => m.MobileNo, "", new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                     <small>
@@ -142,7 +180,6 @@
                     @Html.LabelFor(m => m.Password, new { @class = "form-label" })
                     <sup>*</sup>
                     <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-key"></i></span>
                         @Html.EditorFor(m => m.Password, "", new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                     <small>
@@ -155,7 +192,6 @@
                     @Html.LabelFor(m => m.ConfirmPassword, new { @class = "form-label" })
                     <sup>*</sup>
                     <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-key"></i></span>
                         @Html.EditorFor(m => m.ConfirmPassword, "", new { htmlAttributes = new { @class = "form-control" } })
                     </div>
                     <small>
@@ -168,12 +204,12 @@
             <button type="submit" class="btn-success btn" id="addbtn">Register</button>
             <button type="button" class="btn-danger btn" onclick="pageRefresh()">Cancel</button>
         </div>
-     }
+    }
 </div>
 <script>
     function
         pageRefresh() {
-        window.location.href = "@Url.Action("MembersTB", "User")";
+        window.location.href = "@Url.Action("Members", "Member")";
     }
 </script>
 

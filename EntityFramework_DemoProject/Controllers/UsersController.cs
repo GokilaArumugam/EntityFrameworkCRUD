@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using EntityFramework_DemoProject.Models;
 using System.Data.Entity.Migrations;
+using Microsoft.Win32;
 
 namespace EntityFramework_DemoProject.Controllers
 {
@@ -31,7 +32,7 @@ namespace EntityFramework_DemoProject.Controllers
             {
                 TempData["Error"] = "Provided Email_ID is already Registered!";
             }
-            return View("SignUp", new UsersModelcs());
+            return View("SignUp", new Members());
         }
         [HttpGet]
         public ActionResult SignIn()
@@ -63,10 +64,26 @@ namespace EntityFramework_DemoProject.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult ResetPassword(Register resetpassword) 
+        public ActionResult ResetPassword(Register forgotpassword)
         {
+            using (var db = new UsersContext())
+            {
+                var user = db.registers.Where(m=>m.Email_ID==forgotpassword.Email_ID).FirstOrDefault();
+                if (user != null)
+                {
+                    user.Password= forgotpassword.Password;
+                    user.ConfirmPassword = forgotpassword.ConfirmPassword;
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
+                    TempData["Success"] = "Reset Password Successfully!";
+                    return RedirectToAction("SignIn", "Users");
+                }
+                else 
+                {
+                    TempData["Error"] = "Wrong Email_Id!";
+                }
+            }
             return View();
         }
-        public ActionResult Sample() { return View(); }
     }
 }
