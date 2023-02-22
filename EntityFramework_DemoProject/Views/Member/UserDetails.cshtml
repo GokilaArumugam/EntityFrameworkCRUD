@@ -113,8 +113,8 @@
                     <sup>*</sup>
                     <div class="input-group">
                         @Html.DropDownListFor(m => m.University,
-                                  new SelectList(Enum.GetValues(typeof(EntityFramework_DemoProject.Models.University))), "Select University",
-                                  new { @class = "form-select" })
+         new SelectList(Enum.GetValues(typeof(EntityFramework_DemoProject.Models.University))), "Select University",
+                          new { @class = "form-select" })
                     </div>
                     <small>
                         @Html.ValidationMessageFor(m => m.University, "", new { @class = "text-danger" })

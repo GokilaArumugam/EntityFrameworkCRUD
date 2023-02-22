@@ -1,0 +1,136 @@
+﻿@model List<EntityFramework_DemoProject.Models.EventModel>
+@{
+    ViewBag.Title = "EventTable";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <style>
+        #Field {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #Field td, #Field th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #Field tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #Field tr:hover {
+                background-color: #ddd;
+            }
+
+            #Field th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: antiquewhite;
+                color: black;
+            }
+
+        #atn {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background-color: green;
+            border-radius: 50%;
+        }
+
+        #nonatn {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        #clubs{
+            font-weight:bold;
+        }
+    </style>
+</head>
+<div class="row">
+    @using (Html.BeginForm("SearchBy", "EventTable", FormMethod.Post, new { @class = "registration-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-3">
+                <button class="btn-primary btn">Add Event</button>
+            </div>
+            <div class="col-6">
+                @Html.TextBox("SearchBy", null, new { @class = "form-control-sm d-inline-block" })
+                <input id="btnsearch" type="submit" value="search" />
+            </div>
+            <div class="col-3">
+                <button class="btn-success btn">GetAllEvents</button>
+            </div>
+        </div>
+        <br />
+        <div class="row" id="clubs">
+            <div class="col-3">
+                NSS-National Service Scheme
+            </div>
+            <div class="col-2">
+                YRC-Youth Red Cross
+            </div>
+            <div class="col-3">
+                TTC-Tech Trends Club
+            </div>
+            <div class="col-2">
+                <p>Attended-<span id="atn"></span></p>
+            </div>
+            <div class="col-2">
+                <p>Not Attended-<span id="nonatn"></span></p>
+            </div>
+        </div>
+    }
+</div>
+<table id="Field">
+    <thead>
+        <tr>
+            <th>MemberName</th>
+            <th>Venue</th>
+            <th>EventDate</th>
+            <th>NSS</th>
+            <th>YRC</th>
+            <th>TTC</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{if (Model.Count() > 0)
+            {
+                foreach (var items in Model)
+                {
+                    <tr>
+                        <td>@items.MemberName</td>
+                        <td>@items.Venue</td>
+                        <td>@items.EventDate</td>
+                        <td>@items.NSS
+                        @if (items.NSS == "Attended")
+                        {<span id="atn"></span>}
+                        else
+                        {<span id="nonatn"></span>}</td>
+                        <td>@items.YRC</td>
+                        <td>@items.TTC</td>
+                        <td>
+                            <a href="@Url.Action("UserDetails", "Member", new {id=items.Id})">Edit</a>|
+                            <a href="@Url.Action("DeleteUser", "Member", new {id=items.Id})">Delete</a>
+                        </td>
+                    </tr>
+
+                }
+            }
+            else
+            {
+                <tr style="text-align:center">
+                    <td colspan="12">No Records Found</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+

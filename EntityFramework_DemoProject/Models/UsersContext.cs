@@ -14,6 +14,7 @@ namespace EntityFramework_DemoProject.Models
         }
         public DbSet<Members> User { get; set; }
         public DbSet<Register> registers { get; set; }
+        public DbSet<EventModel> Events { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer<UsersContext>(null);

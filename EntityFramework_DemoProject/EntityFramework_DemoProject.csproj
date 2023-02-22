@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\MemberTableController.cs" />
@@ -150,7 +151,16 @@
     <Compile Include="Migrations\202302211513117_membermigration.designer.cs">
       <DependentUpon>202302211513117_membermigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302221446464_events.cs" />
+    <Compile Include="Migrations\202302221446464_events.designer.cs">
+      <DependentUpon>202302221446464_events.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302221459396_removed_membernamelist.cs" />
+    <Compile Include="Migrations\202302221459396_removed_membernamelist.designer.cs">
+      <DependentUpon>202302221459396_removed_membernamelist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\EventModel.cs" />
     <Compile Include="Models\Members.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Models\UsersContext.cs" />
@@ -235,6 +245,8 @@
     <Content Include="Views\Member\UserDetails.cshtml" />
     <Content Include="Views\Users\ResetPassword.cshtml" />
     <Content Include="Views\MemberTable\MemberTb.cshtml" />
+    <Content Include="Views\Event\EventTable.cshtml" />
+    <Content Include="Views\Event\EventDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -256,6 +268,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302211513117_membermigration.resx">
       <DependentUpon>202302211513117_membermigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302221446464_events.resx">
+      <DependentUpon>202302221446464_events.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302221459396_removed_membernamelist.resx">
+      <DependentUpon>202302221459396_removed_membernamelist.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

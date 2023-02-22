@@ -1,0 +1,22 @@
+﻿@model EntityFramework_DemoProject.Models.EventModel
+    @{
+        ViewBag.Title = "EventDetails";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>EventDetails</h2>
+
+    <div class="registration-container w-50 container">
+        <h2 class="text-center mb-3">
+            Register Here!!
+        </h2>
+        <div class="row">
+            @using (Html.BeginForm("UserDetails", "Member", FormMethod.Post, new { @class = "registration-form" }))
+             {
+                @Html.AntiForgeryToken()
+
+
+
+             }
+        </div>
+    </div>

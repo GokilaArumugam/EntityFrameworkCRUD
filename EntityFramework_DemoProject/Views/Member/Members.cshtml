@@ -26,18 +26,30 @@
                 padding-top: 12px;
                 padding-bottom: 12px;
                 text-align: left;
-                background-color:antiquewhite;
+                background-color: antiquewhite;
                 color: black;
             }
     </style>
 </head>
 <div class="row">
-    <div class="col-sm-3">
-        <a class="btn-primary btn" id="btnAdd" href="@Url.Action("UserDetails", "Member", new {id=0})">AddUser</a>
-    </div>
+    @using (Html.BeginForm("Searchby", "Member", FormMethod.Post, new { @class = "registration-form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="col-sm-6">
+            <a class="btn-primary btn" id="btnAdd" href="@Url.Action("UserDetails", "Member", new { id = 0 })">AddUser</a>
+        </div>
+        <div class="col-sm-6">
+            <a class="btn-success btn" id="btnAdd" href="@Url.Action("Members", "Member")">GetAllUser</a>
+        </div>
+        <br />
+        @Html.TextBox("Search", null, new { @class = "form-control-sm d-inline-block" })
+        @*<btn class="btn-secondary btn" id="btnsearch" href="@Url.Action("Searchby", "Member", new {})">search</btn>*@
+        <input id="btnsearch" type="submit" value="search" />
+        <br />
+        <br />
+    }
 </div>
-<br />
-<br />
 <table id="Field">
     <thead>
         <tr>
@@ -71,12 +83,12 @@
                         <td>@items.Department</td>
                         <td>@items.City</td>
                         <td>
-                            <a href="@Url.Action("UserDetails", "Member", new {id=items.Id})">Edit</a>|
-                            <a href="@Url.Action("DeleteUser", "Member", new {id=items.Id})">Delete</a>
+                            <a href="@Url.Action("UserDetails", "Member", new { id = items.Id })">Edit</a>|
+                            <a href="@Url.Action("DeleteUser", "Member", new { id = items.Id })">Delete</a>
                         </td>
                     </tr>
                 }
-          }
+            }
             else
             {
                 <tr style="text-align:center">
@@ -87,6 +99,7 @@
 
     </tbody>
 </table>
+
 
 
 

@@ -257,3 +257,5 @@ C:\Users\Gokila\source\repos\EntityFrameworkCRUD\EntityFramework_DemoProject\obj
 C:\Users\Gokila\source\repos\EntityFrameworkCRUD\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.pdb
 C:\Users\Gokila\source\repos\EntityFrameworkCRUD\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.Migrations.changepassword.resources
 C:\Users\Gokila\source\repos\EntityFrameworkCRUD\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.Migrations.membermigration.resources
+C:\Users\Gokila\source\repos\EntityFrameworkCRUD\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.Migrations.events.resources
+C:\Users\Gokila\source\repos\EntityFrameworkCRUD\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.Migrations.removed_membernamelist.resources
