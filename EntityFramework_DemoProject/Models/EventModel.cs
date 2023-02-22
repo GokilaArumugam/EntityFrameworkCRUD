@@ -11,7 +11,7 @@ namespace EntityFramework_DemoProject.Models
 {
     public class EventModel
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string MemberName { get; set; }
         public string Venue { get; set; }
         public DateTime EventDate { get; set; }

@@ -29,10 +29,40 @@ namespace EntityFramework_DemoProject.Controllers
             m.Venue.Contains(search.ToString()));
             return View("EventTable",searchevent.ToList());
         }
-        public ActionResult EventDetails()
+        public ActionResult EventDetails(int id=0)
         {
-            return View();
+            EventModel userTb = new EventModel();
+            if (id != 0)
+            {
+                using (var db = new UsersContext())
+                {
+                    userTb = db.Events.Where(m => m.Id == id).FirstOrDefault();
+                }
+            }
+            return View(userTb);  
         }
-      
+        public ActionResult EventDetails(EventModel entity)
+        {
+            using (var context = new UsersContext())
+            {
+                context.Entry(entity).State = entity.Id == 0 ?
+                                           EntityState.Added :
+                                           EntityState.Modified;
+
+                context.SaveChanges();
+            }
+            return View("EventTable",GetEventList());
+        }
+        public ActionResult DeleteEvent(int id)
+        {
+            using (var db = new UsersContext())
+            {
+                var userTb = db.Events.Where(m => m.Id == id).FirstOrDefault();
+                db.Events.Remove(userTb);
+                db.SaveChanges();
+            }
+            return View("Members",GetEventList());
+        }
+
     }
 }

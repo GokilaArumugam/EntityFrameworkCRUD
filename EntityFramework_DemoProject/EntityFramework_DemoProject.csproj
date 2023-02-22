@@ -151,13 +151,9 @@
     <Compile Include="Migrations\202302211513117_membermigration.designer.cs">
       <DependentUpon>202302211513117_membermigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202302221446464_events.cs" />
-    <Compile Include="Migrations\202302221446464_events.designer.cs">
-      <DependentUpon>202302221446464_events.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202302221459396_removed_membernamelist.cs" />
-    <Compile Include="Migrations\202302221459396_removed_membernamelist.designer.cs">
-      <DependentUpon>202302221459396_removed_membernamelist.cs</DependentUpon>
+    <Compile Include="Migrations\202302221802327_event.cs" />
+    <Compile Include="Migrations\202302221802327_event.designer.cs">
+      <DependentUpon>202302221802327_event.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EventModel.cs" />
@@ -269,11 +265,8 @@
     <EmbeddedResource Include="Migrations\202302211513117_membermigration.resx">
       <DependentUpon>202302211513117_membermigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202302221446464_events.resx">
-      <DependentUpon>202302221446464_events.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202302221459396_removed_membernamelist.resx">
-      <DependentUpon>202302221459396_removed_membernamelist.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202302221802327_event.resx">
+      <DependentUpon>202302221802327_event.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

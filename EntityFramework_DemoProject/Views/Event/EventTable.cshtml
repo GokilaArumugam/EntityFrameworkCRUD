@@ -52,12 +52,12 @@
     </style>
 </head>
 <div class="row">
-    @using (Html.BeginForm("SearchBy", "EventTable", FormMethod.Post, new { @class = "registration-form" }))
+    @using (Html.BeginForm("SearchBy", "Event", FormMethod.Post, new { @class = "registration-form" }))
     {
         @Html.AntiForgeryToken()
         <div class="row">
             <div class="col-3">
-                <button class="btn-primary btn">Add Event</button>
+                <a class="btn-primary btn" id="btnAddevent" href="@Url.Action("EventDetails", "Event", new { id = 0 })">AddEvent</a>
             </div>
             <div class="col-6">
                 @Html.TextBox("SearchBy", null, new { @class = "form-control-sm d-inline-block" })
@@ -116,8 +116,8 @@
                         <td>@items.YRC</td>
                         <td>@items.TTC</td>
                         <td>
-                            <a href="@Url.Action("UserDetails", "Member", new {id=items.Id})">Edit</a>|
-                            <a href="@Url.Action("DeleteUser", "Member", new {id=items.Id})">Delete</a>
+                            <a href="@Url.Action("EventDetails", "Member", new {id=items.Id})">Edit</a>|
+                            <a href="@Url.Action("DeleteEvent", "Member", new {id=items.Id})">Delete</a>
                         </td>
                     </tr>
 
