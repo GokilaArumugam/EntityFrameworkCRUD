@@ -31,21 +31,26 @@
             }
     </style>
 </head>
+<h1 class="text-center">Members</h1>
 <div class="row">
     @using (Html.BeginForm("Searchby", "Member", FormMethod.Post, new { @class = "registration-form" }))
     {
         @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-3">
+                <a class="btn-primary btn" id="btnAdd" href="@Url.Action("UserDetails", "Member", new { id = 0 })">AddUser</a>
+            </div>
+            <div class="col-6">
 
-        <div class="col-sm-6">
-            <a class="btn-primary btn" id="btnAdd" href="@Url.Action("UserDetails", "Member", new { id = 0 })">AddUser</a>
+            </div>
+            <div class="col-3">
+                <a class="btn-success btn" id="btnAdd" href="@Url.Action("Members", "Member")">GetAllUser</a>
+            </div>
         </div>
-        <div class="col-sm-6">
-            <a class="btn-success btn" id="btnAdd" href="@Url.Action("Members", "Member")">GetAllUser</a>
-        </div>
+
         <br />
         @Html.TextBox("Search", null, new { @class = "form-control-sm d-inline-block" })
-        @*<btn class="btn-secondary btn" id="btnsearch" href="@Url.Action("Searchby", "Member", new {})">search</btn>*@
-        <input id="btnsearch" type="submit" value="search" />
+        <input id="btnsearch"class="btn-secondary btn" type="submit" value="search" />
         <br />
         <br />
     }

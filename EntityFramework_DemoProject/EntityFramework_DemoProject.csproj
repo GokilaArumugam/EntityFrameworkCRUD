@@ -151,14 +151,24 @@
     <Compile Include="Migrations\202302211513117_membermigration.designer.cs">
       <DependentUpon>202302211513117_membermigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202302221802327_event.cs" />
-    <Compile Include="Migrations\202302221802327_event.designer.cs">
-      <DependentUpon>202302221802327_event.cs</DependentUpon>
+    <Compile Include="Migrations\202302230604378_eventmigrate.cs" />
+    <Compile Include="Migrations\202302230604378_eventmigrate.designer.cs">
+      <DependentUpon>202302230604378_eventmigrate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302230611281_test.cs" />
+    <Compile Include="Migrations\202302230611281_test.designer.cs">
+      <DependentUpon>202302230611281_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302230620083_Event_club.cs" />
+    <Compile Include="Migrations\202302230620083_Event_club.designer.cs">
+      <DependentUpon>202302230620083_Event_club.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\ClubsModel.cs" />
+    <Compile Include="Models\EventsModel.cs" />
     <Compile Include="Models\Members.cs" />
     <Compile Include="Models\Register.cs" />
+    <Compile Include="Models\TestModel.cs" />
     <Compile Include="Models\UsersContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -265,8 +275,14 @@
     <EmbeddedResource Include="Migrations\202302211513117_membermigration.resx">
       <DependentUpon>202302211513117_membermigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202302221802327_event.resx">
-      <DependentUpon>202302221802327_event.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202302230604378_eventmigrate.resx">
+      <DependentUpon>202302230604378_eventmigrate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302230611281_test.resx">
+      <DependentUpon>202302230611281_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302230620083_Event_club.resx">
+      <DependentUpon>202302230620083_Event_club.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

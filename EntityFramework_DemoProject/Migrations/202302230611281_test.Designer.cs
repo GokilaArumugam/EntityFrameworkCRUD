@@ -7,13 +7,13 @@ namespace EntityFramework_DemoProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class _event : IMigrationMetadata
+    public sealed partial class test : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_event));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(test));
         
         string IMigrationMetadata.Id
         {
-            get { return "202302221802327_event"; }
+            get { return "202302230611281_test"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,6 +1,6 @@
-﻿@model EntityFramework_DemoProject.Models.EventModel
+﻿@model EntityFramework_DemoProject.Models.ClubsModel
 @{
-    ViewBag.Title = "EventDetails";
+    ViewBag.Title = "Events";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -71,13 +71,13 @@
                 <div class="col-6">
                     <div class="col-6">
                         <div class="form-group">
-                            @Html.LabelFor(m => m.EventDate, new { @class = "form-label" })
+                            @Html.LabelFor(m => m.Event_Date, new { @class = "form-label" })
                             <sup>*</sup>
                             <div class="input-group">
-                                @Html.EditorFor(m => m.EventDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(m => m.Event_Date, new { htmlAttributes = new { @class = "form-control" } })
                             </div>
                             <small>
-                                @Html.ValidationMessageFor(m => m.EventDate, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(m => m.Event_Date, "", new { @class = "text-danger" })
                             </small>
                         </div>
                     </div>
@@ -109,11 +109,11 @@
                             @Html.RadioButtonFor(m => m.TTC, "Attended", new { @class = "form-check-input me-1" })
                             @Html.Label("Attended", new { @class = "form-check-label me-1" })
 
-                            @Html.RadioButtonFor(m => m.NSS, "Not Attended", new { @class = "form-check-input me-1" })
+                            @Html.RadioButtonFor(m => m.TTC, "Not Attended", new { @class = "form-check-input me-1" })
                             @Html.Label("Not Attended", new { @class = "form-check-label me-1" })
                         </div>
                         <small>
-                            @Html.ValidationMessageFor(m => m.NSS, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(m => m.TTC, "", new { @class = "text-danger" })
                         </small>
                     </div>
                 </div>
@@ -133,9 +133,12 @@
                         </small>
                     </div>
                 </div>
-            </div>
-            <div class="mt-3  text-center">
-                <button type="submit" class="btn-success btn" id="addbtn">Register</button>
+            </div><div class="mt-3  text-center">
+                @if (Model.Id == 0)
+                {<button type="submit" class="btn-success btn" id="addbtn">Register</button>}
+                else
+                {<button type="submit" class="btn-primary btn" id="addbtn">Update</button>}
+
                 <button type="button" class="btn-danger btn" onclick="pageRefresh()">Cancel</button>
             </div>
         }

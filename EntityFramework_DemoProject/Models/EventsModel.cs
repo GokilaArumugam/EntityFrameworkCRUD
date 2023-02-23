@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Runtime.CompilerServices;
+using System.Security.Permissions;
 using System.Web;
-using System.Web.UI.WebControls;
-using System.Web.WebPages.Html;
 
 namespace EntityFramework_DemoProject.Models
 {
-    public class EventModel
+    public class EventsModel
     {
+      //  [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [Required, DataType(DataType.Text)]
         public string MemberName { get; set; }
+        [Required, DataType(DataType.Text)]
         public string Venue { get; set; }
         public DateTime EventDate { get; set; }
         public string NSS { get; set; }

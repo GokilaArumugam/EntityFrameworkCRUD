@@ -257,4 +257,6 @@ C:\Users\Gokila\source\repos\EntityFrameworkCRUD\EntityFramework_DemoProject\obj
 C:\Users\Gokila\source\repos\EntityFrameworkCRUD\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.pdb
 C:\Users\Gokila\source\repos\EntityFrameworkCRUD\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.Migrations.changepassword.resources
 C:\Users\Gokila\source\repos\EntityFrameworkCRUD\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.Migrations.membermigration.resources
-C:\Users\Gokila\source\repos\EntityFrameworkCRUD\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.Migrations._event.resources
+C:\Users\Gokila\source\repos\EntityFrameworkCRUD\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.Migrations.eventmigrate.resources
+C:\Users\Gokila\source\repos\EntityFrameworkCRUD\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.Migrations.test.resources
+C:\Users\Gokila\source\repos\EntityFrameworkCRUD\EntityFramework_DemoProject\obj\Debug\EntityFramework_DemoProject.Migrations.Event_club.resources

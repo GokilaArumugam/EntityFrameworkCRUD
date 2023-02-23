@@ -1,4 +1,4 @@
-﻿@model List<EntityFramework_DemoProject.Models.EventModel>
+﻿@model List<EntityFramework_DemoProject.Models.ClubsModel>
 @{
     ViewBag.Title = "EventTable";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -46,11 +46,16 @@
             background-color: red;
             border-radius: 50%;
         }
-        #clubs{
-            font-weight:bold;
+
+        #clubs {
+            font-weight: bold;
         }
     </style>
 </head>
+<h1 class="text-center">
+    Events
+</h1>
+<br />
 <div class="row">
     @using (Html.BeginForm("SearchBy", "Event", FormMethod.Post, new { @class = "registration-form" }))
     {
@@ -60,11 +65,11 @@
                 <a class="btn-primary btn" id="btnAddevent" href="@Url.Action("EventDetails", "Event", new { id = 0 })">AddEvent</a>
             </div>
             <div class="col-6">
-                @Html.TextBox("SearchBy", null, new { @class = "form-control-sm d-inline-block" })
+                @Html.TextBox("search", null, new { @class = "form-control-sm d-inline-block" })
                 <input id="btnsearch" type="submit" value="search" />
             </div>
             <div class="col-3">
-                <button class="btn-success btn">GetAllEvents</button>
+                <a class="btn-success btn" id="btnAdd" href="@Url.Action("EventTable", "Event")">GetAllUser</a>
             </div>
         </div>
         <br />
@@ -79,10 +84,10 @@
                 TTC-Tech Trends Club
             </div>
             <div class="col-2">
-                <p>Attended-<span id="atn"></span></p>
+                <p>Attended - <span id="atn"></span></p>
             </div>
             <div class="col-2">
-                <p>Not Attended-<span id="nonatn"></span></p>
+                <p>Not Attended - <span id="nonatn"></span></p>
             </div>
         </div>
     }
@@ -107,20 +112,33 @@
                     <tr>
                         <td>@items.MemberName</td>
                         <td>@items.Venue</td>
-                        <td>@items.EventDate</td>
-                        <td>@items.NSS
-                        @if (items.NSS == "Attended")
-                        {<span id="atn"></span>}
-                        else
-                        {<span id="nonatn"></span>}</td>
-                        <td>@items.YRC</td>
-                        <td>@items.TTC</td>
+                        <td>@items.Event_Date.Date</td>
                         <td>
-                            <a href="@Url.Action("EventDetails", "Member", new {id=items.Id})">Edit</a>|
-                            <a href="@Url.Action("DeleteEvent", "Member", new {id=items.Id})">Delete</a>
+                            @items.NSS
+                            @if (items.NSS == "Attended")
+                            {<span id="atn"></span>}
+                            else
+                            {<span id="nonatn"></span>}
+                        </td>
+                        <td>
+                            @items.YRC
+                            @if (items.YRC == "Attended")
+                            {<span id="atn"></span>}
+                            else
+                            {<span id="nonatn"></span>}
+                        </td>
+                        <td>
+                            @items.TTC
+                            @if (items.TTC == "Attended")
+                            {<span id="atn"></span>}
+                            else
+                            {<span id="nonatn"></span>}
+                        </td>
+                        <td>
+                            <a href="@Url.Action("EventDetails", "Event", new {id=items.Id})">Edit</a>|
+                            <a href="@Url.Action("DeleteEvent", "Event", new {id=items.Id})">Delete</a>
                         </td>
                     </tr>
-
                 }
             }
             else
