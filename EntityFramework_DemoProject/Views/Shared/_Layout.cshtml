@@ -22,6 +22,7 @@
                 @*</button>*@
                 @Html.ActionLink("MemberTable", "Members", "Member", new { area = "" }, new { @class = "navbar-brand" })
                 @Html.ActionLink("EventTable", "EventTable", "Event", new { area = "" }, new { @class = "navbar-brand" })
+            <span class="text-white ms-auto">Wellcome!! @TempData["Welcome"]</span>   
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">

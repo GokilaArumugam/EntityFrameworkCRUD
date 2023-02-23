@@ -48,8 +48,8 @@ namespace EntityFramework_DemoProject.Controllers
                 if (userlogin != null)
                 {
                     TempData["Success"] = "Login Successfully!";
+                    TempData["Welcome"] = userlogin.Name;
                     return RedirectToAction("Members", "Member");
-
                 }
                 else
                 {

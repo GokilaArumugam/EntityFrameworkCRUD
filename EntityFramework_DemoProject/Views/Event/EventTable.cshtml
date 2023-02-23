@@ -122,21 +122,18 @@
                         <td>@items.Venue</td>
                         <td>@items.Event_Date.Date</td>
                         <td>
-                            @items.NSS
                             @if (items.NSS == "Attended")
                             {<span id="atn"></span>}
                             else
                             {<span id="nonatn"></span>}
                         </td>
                         <td>
-                            @items.YRC
                             @if (items.YRC == "Attended")
                             {<span id="atn"></span>}
                             else
                             {<span id="nonatn"></span>}
                         </td>
                         <td>
-                            @items.TTC
                             @if (items.TTC == "Attended")
                             {<span id="atn"></span>}
                             else

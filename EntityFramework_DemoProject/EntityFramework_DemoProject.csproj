@@ -163,6 +163,10 @@
     <Compile Include="Migrations\202302230620083_Event_club.designer.cs">
       <DependentUpon>202302230620083_Event_club.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302231415532_user_migration1.cs" />
+    <Compile Include="Migrations\202302231415532_user_migration1.designer.cs">
+      <DependentUpon>202302231415532_user_migration1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ClubsModel.cs" />
     <Compile Include="Models\EventsModel.cs" />
@@ -189,6 +193,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Images\Login-amico.png" />
+    <Content Include="Content\Images\Tablet login-pana.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -283,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302230620083_Event_club.resx">
       <DependentUpon>202302230620083_Event_club.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302231415532_user_migration1.resx">
+      <DependentUpon>202302231415532_user_migration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

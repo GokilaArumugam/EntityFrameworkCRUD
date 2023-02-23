@@ -57,12 +57,11 @@ namespace EntityFramework_DemoProject.Controllers
             }
             return View("EventTable",GetEventList());
         }
-        [HttpGet]
-        public ActionResult DeleteEvent()
-        {
-            return View();
-        }
-        [HttpPost]
+        //[HttpGet]
+        //public ActionResult DeleteEvent()
+        //{
+        //    return View();
+        //}
         public ActionResult DeleteEvent(int id)
         {
             using (var db = new UsersContext())
@@ -71,7 +70,7 @@ namespace EntityFramework_DemoProject.Controllers
                 db.Event.Remove(userTb);
                 db.SaveChanges();
             }
-            return View("Event",GetEventList());
+            return View("EventTable",GetEventList());
         }
 
     }
