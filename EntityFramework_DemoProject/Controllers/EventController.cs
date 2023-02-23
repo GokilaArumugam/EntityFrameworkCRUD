@@ -20,6 +20,7 @@ namespace EntityFramework_DemoProject.Controllers
         public ActionResult EventTable()
         {
             List<ClubsModel> list = GetEventList();
+            ViewBag.Count=list.Count;
             return View(list);
         }
         public ActionResult SearchBy(string search) 

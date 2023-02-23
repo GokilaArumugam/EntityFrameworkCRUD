@@ -50,6 +50,9 @@
         #clubs {
             font-weight: bold;
         }
+        label{
+            font-weight:bold;
+        }
     </style>
 </head>
 <h1 class="text-center">
@@ -64,9 +67,14 @@
             <div class="col-3">
                 <a class="btn-primary btn" id="btnAddevent" href="@Url.Action("EventDetails", "Event", new { id = 0 })">AddEvent</a>
             </div>
-            <div class="col-6">
+            <div class="col-3">
                 @Html.TextBox("search", null, new { @class = "form-control-sm d-inline-block" })
-                <input id="btnsearch" type="submit" value="search" />
+                <input id="btnsearch" class="btn-secondary btn" type="submit" value="search" />
+            </div>
+            <div class="col-3">
+                <label style="font-size:larger">
+                    Total Members:@ViewBag.Count
+                </label>
             </div>
             <div class="col-3">
                 <a class="btn-success btn" id="btnAdd" href="@Url.Action("EventTable", "Event")">GetAllUser</a>

@@ -18,9 +18,11 @@ namespace EntityFramework_DemoProject.Controllers
                 return db.User.ToList();
             }
         }
+
         public ActionResult Members()
         {
             List<Members> listUser = GetList();
+            ViewBag.Count=listUser.Count;
             return View(listUser);
         }
         [HttpGet]
